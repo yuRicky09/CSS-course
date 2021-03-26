@@ -51,6 +51,8 @@ body{
 }
 .heading-primary{
     color: white;
+    /* 在用animation時有時候會莫名地造成畫面小小的shaking 用這個屬性可以解決(原因不明)  這屬性能讓背後的屬性不被看到 */
+    backface-visibility: hidden;
 }
 
 .heading-primary-main,.heading-primary-sub{
@@ -61,10 +63,53 @@ body{
     font-size: 60px;
     font-weight: 400;
     letter-spacing: 35px;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+
+    /* animation-iteration-count: infinite; 設定動畫要載幾次 */   
 
 }
 .heading-primary-sub{
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 17.5px;
+    animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+}
+
+/* 使用@keyframes 建立動畫名與內容 再用 animation-name載入動畫 */
+@keyframes moveInLeft{
+    0%{
+        opacity: 0;
+        transform: translateX(-200px);
+    }
+
+    80%{
+        opacity: 1;
+        transform: translateX(20px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight{
+    0%{
+        opacity: 0;
+        transform: translateX(200px);
+    }
+
+    80%{
+        opacity: 1;
+        transform: translateX(-20px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
 }
