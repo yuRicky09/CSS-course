@@ -12,13 +12,20 @@ Dark green: #28b485
     box-sizing: border-box;
 }
 
+
+html{
+    /* 預設為16px 這樣設定後變為10px 方便等等用rem來設定字大小 1rem=預設的根字大小 所以現在1rem = 10px 方便我們計算  */
+    /* 這樣便能用調整rem來改變整個網站的字大小 間距等等 方便我們做rwd網站(red網站最怕寫死單位) */
+    font-size: 62.5%;
+}
+
 body{
     font-family: "Lato", sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    /* font-size: 16px; */
     line-height: 1.7;
     color: #777;
-    padding: 30px;
+    padding: 3rem;
 }
 
 .header{
@@ -35,11 +42,11 @@ body{
 
 .logo-box{
     position: absolute;
-    top: 40px;
-    left: 40px;
+    top: 4rem;
+    left: 4rem;
 }
 .logo-box img{
-    height: 35px;
+    height: 3.5rem;
 }
 
 .text-box{
@@ -61,9 +68,9 @@ body{
 }
 
 .heading-primary-main{
-    font-size: 60px;
+    font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 35px;
+    letter-spacing: 3.5rem;
     animation-name: moveInLeft;
     animation-duration: 1s;
     animation-timing-function: ease-in-out;
@@ -73,10 +80,10 @@ body{
 }
 .heading-primary-sub{
     position: relative;
-    left: -5px;
-    font-size: 20px;
+    left: -0.5rem;
+    font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 17.5px;
+    letter-spacing: 1.75rem;
     animation: moveInRight 1s ease-in-out;
 }
 
@@ -84,12 +91,12 @@ body{
 @keyframes moveInLeft{
     0%{
         opacity: 0;
-        transform: translateX(-200px);
+        transform: translateX(-20rem);
     }
 
     80%{
         opacity: 1;
-        transform: translateX(20px);
+        transform: translateX(2rem);
     }
 
     100%{
@@ -101,12 +108,12 @@ body{
 @keyframes moveInRight{
     0%{
         opacity: 0;
-        transform: translateX(200px);
+        transform: translateX(20rem);
     }
 
     80%{
         opacity: 1;
-        transform: translateX(-20px);
+        transform: translateX(-2rem);
     }
 
     100%{
@@ -120,7 +127,7 @@ body{
 @keyframes moveInBtn{
     0%{
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(3rem);
     }
 
 
@@ -133,9 +140,10 @@ body{
 .btn:link,.btn:visited{
     text-decoration: none;
     display: inline-block;
-    padding: 10px;
-    margin-top: 50px;
-    border-radius: 100px;
+    font-size: 1.6rem;
+    padding: 1rem;
+    margin-top: 5rem;
+    border-radius: 10rem;
     transition: all .3s;
     position: relative;
     /* 這邊加延遲是為了造成時間差 先讓標題的動畫跑完再跑按鈕的動畫 */
@@ -145,13 +153,13 @@ body{
 }
 
 .btn:hover{
-    transform: translateY(-3px);
-    box-shadow: 0 10px 10px  rgba(0, 0, 0, 0.2) ;
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 1rem  rgba(0, 0, 0, 0.2) ;
 }
 
 .btn:active{
-    transform: translateY(-1px);
-    box-shadow: 0 5px 10px  rgba(0, 0, 0, 0.2) ;
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem  rgba(0, 0, 0, 0.2) ;
 }
 
 .btn-white{
