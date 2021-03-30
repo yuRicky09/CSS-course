@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
 COLORS:
 
@@ -8,195 +9,156 @@ Dark green: #28b485
 */
 *,
 *::before,
-*::after{
-    padding: 0;
-    margin: 0;
-    box-sizing: inherit;
-}
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit; }
 
+html {
+  /* 預設為16px 這樣設定後變為10px 方便等等用rem來設定字大小 1rem=預設的根字大小 所以現在1rem = 10px 方便我們計算  */
+  /* 這樣便能用調整rem來改變整個網站的字大小 間距等等 方便我們做rwd網站(red網站最怕寫死單位) */
+  font-size: 62.5%; }
 
-html{
-    /* 預設為16px 這樣設定後變為10px 方便等等用rem來設定字大小 1rem=預設的根字大小 所以現在1rem = 10px 方便我們計算  */
-    /* 這樣便能用調整rem來改變整個網站的字大小 間距等等 方便我們做rwd網站(red網站最怕寫死單位) */
-    font-size: 62.5%;
-}
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem;
+  box-sizing: border-box; }
 
-body{
-    font-family: "Lato", sans-serif;
-    font-weight: 400;
-    /* font-size: 16px; */
-    line-height: 1.7;
-    color: #777;
-    padding: 3rem;
-    box-sizing: border-box;
-}
+.header {
+  /*vh單位常用於rwd 畫面高度永遠顯示95%    寬度則是用vw*/
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+  /* clip-path: polygon(100% 0, 0 0, 100% 100%); */
+  /* clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%); */ }
 
-.header{
-    /*vh單位常用於rwd 畫面高度永遠顯示95%    寬度則是用vw*/
-    height: 95vh;
-    background-image: linear-gradient(to right bottom, hsla(111, 55%, 64%, 0.8),hsla(160, 64%, 43%, 0.8)),url(../img/hero.jpg);
-    background-size: cover;
-    background-position: top;
-    position: relative;
-    clip-path: polygon(0 0, 100% 0, 100% 80vh,0 100%);
-    /* clip-path: polygon(100% 0, 0 0, 100% 100%); */
-    /* clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%); */
-}
+.header__logo-box {
+  position: absolute;
+  top: 4rem;
+  left: 4rem; }
 
-.header__logo-box{
-    position: absolute;
-    top: 4rem;
-    left: 4rem;
-}
-.header__logo-box img{
-    height: 3.5rem;
-}
+.header__logo-box img {
+  height: 3.5rem; }
 
-.header__text-box{
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    /*只有上面的設定的話是物件的右上角置中，加上transform讓她是物件本身能真的置中*/
-    transform: translate(-50%,-50%);
-    text-align: center;
-}
-.heading-primary{
-    color: white;
-    /* 在用animation時有時候會莫名地造成畫面小小的shaking 用這個屬性可以解決(原因不明)  這屬性能讓背後的屬性不被看到 */
-    backface-visibility: hidden;
-}
+.header__text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  /*只有上面的設定的話是物件的右上角置中，加上transform讓她是物件本身能真的置中*/
+  transform: translate(-50%, -50%);
+  text-align: center; }
 
-.heading-primary--main,.heading-primary--sub{
-    display: block;
-}
+.heading-primary {
+  color: #fff;
+  /* 在用animation時有時候會莫名地造成畫面小小的shaking 用這個屬性可以解決(原因不明)  這屬性能讓背後的屬性不被看到 */
+  backface-visibility: hidden; }
 
-.heading-primary--main{
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
-    animation-name: moveInLeft;
-    animation-duration: 1s;
-    animation-timing-function: ease-in-out;
+.heading-primary--main, .heading-primary--sub {
+  display: block; }
 
-    /* animation-iteration-count: infinite; 設定動畫要載幾次 */   
+.heading-primary--main {
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 3.5rem;
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  /* animation-iteration-count: infinite; 設定動畫要載幾次 */ }
 
-}
-.heading-primary--sub{
-    position: relative;
-    left: -0.5rem;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.75rem;
-    animation: moveInRight 1s ease-in-out;
-}
+.heading-primary--sub {
+  position: relative;
+  left: -0.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1.75rem;
+  animation: moveInRight 1s ease-in-out; }
 
 /* 使用@keyframes 建立動畫名與內容 再用 animation-name載入動畫 */
-@keyframes moveInLeft{
-    0%{
-        opacity: 0;
-        transform: translateX(-20rem);
-    }
-
-    80%{
-        opacity: 1;
-        transform: translateX(2rem);
-    }
-
-    100%{
-        opacity: 1;
-        transform: translate(0);
-    }
-}
-
-@keyframes moveInRight{
-    0%{
-        opacity: 0;
-        transform: translateX(20rem);
-    }
-
-    80%{
-        opacity: 1;
-        transform: translateX(-2rem);
-    }
-
-    100%{
-        opacity: 1;
-        transform: translate(0);
-    }
-}
-
-
-
-@keyframes moveInBtn{
-    0%{
-        opacity: 0;
-        transform: translateY(3rem);
-    }
-
-
-    100%{
-        opacity: 1;
-        transform: translate(0);
-    }
-}
-
-.btn:link,.btn:visited{
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1.6rem;
-    padding: 1rem;
-    margin-top: 5rem;
-    border-radius: 10rem;
-    transition: all .3s;
-    position: relative;
-}
-
-.btn:hover{
-    transform: translateY(-0.3rem);
-    box-shadow: 0 1rem 1rem  rgba(0, 0, 0, 0.2) ;
-}
-
-.btn:active{
-    transform: translateY(-0.1rem);
-    box-shadow: 0 0.5rem 1rem  rgba(0, 0, 0, 0.2) ;
-}
-
-.btn--white{
-    color: #777;
-    background-color: #fff;
-}
-
-/* 利用偽元素製造殘影擴大在消失的外觀 */
-
-/* 當一個物件加上偽元素時，產生出來的偽物件可以看成原本物件的子物件  兩者擁有父子層關係 所以當寬高設100%就表示要一樣大 */
-.btn::after{
-    content: "";
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-    border-radius: 100px;
-    /* 設定絕對位置 並在父層加上relative 然後位置設0 這樣就能重疊在父元素上 但是為了讓父元素在上面 這邊增加z-index-1 讓子元素到下面 */
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    /* 增加轉場  在hover狀態下設透明度0 這樣透明度就回由1至0 產生消失的效果 */
-    transition: all .3s ease-out;
-}
-
-.btn--white::after{
-    background-color: #fff;
-}
-/* 由後往前解析比較好理解  我們要調整:after這個偽元素 必且當它是被hover摸到的時候 */
-.btn:hover::after{
-    transform: scale(1.5,1.7);
+@keyframes moveInLeft {
+  0% {
     opacity: 0;
-}
+    transform: translateX(-20rem); }
+  80% {
+    opacity: 1;
+    transform: translateX(2rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
 
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(20rem); }
+  80% {
+    opacity: 1;
+    transform: translateX(-2rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
 
-.btn--animated{
-     /* 這邊加延遲是為了造成時間差 先讓標題的動畫跑完再跑按鈕的動畫 */
-    animation: moveInBtn .5s .75s;
-     /* 這個屬性能決定下動畫的物件一開始要用動畫效果的哪一偵為狀態   backwards會以動畫開始的第一偵為物件的狀態 這邊加這個是因為 按鈕動畫有設延遲 所以一開始他會出現在螢幕上 過0.75秒後才會開始跑動畫 進入到opacity0的狀態  下這個的話能讓物件直接進入動畫開始跑第一偵的狀態 */
-    animation-fill-mode: backwards;
-}
+@keyframes moveInBtn {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+.btn:link, .btn:visited {
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.6rem;
+  padding: 1rem;
+  margin-top: 5rem;
+  border-radius: 10rem;
+  transition: all .3s;
+  position: relative; }
+
+.btn:hover {
+  transform: translateY(-0.3rem);
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2); }
+
+.btn:active {
+  transform: translateY(-0.1rem);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+
+.btn--white {
+  color: #777;
+  background-color: #fff; }
+
+/* 利用偽元素製造殘影擴大再消失的外觀 */
+/* 當一個物件加上偽元素時，產生出來的偽物件可以看成原本物件的子物件  兩者擁有父子層關係 所以當寬高設100%就表示要一樣大 */
+.btn::after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  border-radius: 100px;
+  /* 設定絕對位置 並在父層加上relative 然後位置設0 這樣就能重疊在父元素上 但是為了讓父元素在上面 這邊增加z-index-1 讓子元素到下面 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  /* 增加轉場  在hover狀態下設透明度0 這樣透明度就回由1至0 產生消失的效果 */
+  transition: all .3s ease-out; }
+
+.btn--white::after {
+  background-color: #fff; }
+
+/* 由後往前解析比較好理解  我們要調整:after這個偽元素 必且當它是被hover摸到的時候 */
+.btn:hover::after {
+  transform: scale(1.5, 1.7);
+  opacity: 0; }
+
+.btn--animated {
+  /* 這邊加延遲是為了造成時間差 先讓標題的動畫跑完再跑按鈕的動畫 */
+  animation: moveInBtn .5s .75s;
+  /* 這個屬性能決定下動畫的物件一開始要用動畫效果的哪一偵為狀態   backwards會以動畫開始的第一偵為物件的狀態 這邊加這個是因為 按鈕動畫有設延遲 所以一開始他會出現在螢幕上 過0.75秒後才會開始跑動畫 進入到opacity0的狀態  下這個的話能讓物件直接進入動畫開始跑第一偵的狀態 */
+  animation-fill-mode: backwards; }
