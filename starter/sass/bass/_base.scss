@@ -1,0 +1,18 @@
+*,
+*::before,
+*::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+
+
+html{
+    /* 預設為16px 這樣設定後變為10px 方便等等用rem來設定字大小 1rem=預設的根字大小 所以現在1rem = 10px 方便我們計算  */
+    /* 這樣便能用調整rem來改變整個網站的字大小 間距等等 方便我們做rwd網站(red網站最怕寫死單位) */
+    font-size: 62.5%;
+}
+
+body{
+    box-sizing: border-box;
+}

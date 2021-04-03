@@ -53,7 +53,7 @@ body {
   left: 4rem;
 }
 
-.header__logo-box img {
+.header__logo {
   height: 3.5rem;
 }
 
@@ -199,6 +199,11 @@ body {
   }
 }
 
+.btn {
+  /* 利用偽元素製造殘影擴大再消失的外觀 */
+  /* 當一個物件加上偽元素時，產生出來的偽物件可以看成原本物件的子物件  兩者擁有父子層關係 所以當寬高設100%就表示要一樣大 */
+}
+
 .btn:link, .btn:visited {
   text-decoration: none;
   display: inline-block;
@@ -216,6 +221,13 @@ body {
           transform: translateY(-0.3rem);
   -webkit-box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
           box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
+  /* 由後往前解析比較好理解  我們要調整:after這個偽元素 必且當它是被hover摸到的時候 */
+}
+
+.btn:hover::after {
+  -webkit-transform: scale(1.5, 1.7);
+          transform: scale(1.5, 1.7);
+  opacity: 0;
 }
 
 .btn:active {
@@ -230,8 +242,10 @@ body {
   background-color: #fff;
 }
 
-/* 利用偽元素製造殘影擴大再消失的外觀 */
-/* 當一個物件加上偽元素時，產生出來的偽物件可以看成原本物件的子物件  兩者擁有父子層關係 所以當寬高設100%就表示要一樣大 */
+.btn--white::after {
+  background-color: #fff;
+}
+
 .btn::after {
   content: "";
   display: inline-block;
@@ -246,17 +260,6 @@ body {
   /* 增加轉場  在hover狀態下設透明度0 這樣透明度就回由1至0 產生消失的效果 */
   -webkit-transition: all .3s ease-out;
   transition: all .3s ease-out;
-}
-
-.btn--white::after {
-  background-color: #fff;
-}
-
-/* 由後往前解析比較好理解  我們要調整:after這個偽元素 必且當它是被hover摸到的時候 */
-.btn:hover::after {
-  -webkit-transform: scale(1.5, 1.7);
-          transform: scale(1.5, 1.7);
-  opacity: 0;
 }
 
 .btn--animated {
