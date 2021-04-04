@@ -1,106 +1,4 @@
 @charset "UTF-8";
-/*
-COLORS:
-
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
-
-*/
-*,
-*::before,
-*::after {
-  padding: 0;
-  margin: 0;
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit;
-}
-
-html {
-  /* 預設為16px 這樣設定後變為10px 方便等等用rem來設定字大小 1rem=預設的根字大小 所以現在1rem = 10px 方便我們計算  */
-  /* 這樣便能用調整rem來改變整個網站的字大小 間距等等 方便我們做rwd網站(red網站最怕寫死單位) */
-  font-size: 62.5%;
-}
-
-body {
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  /* font-size: 16px; */
-  line-height: 1.7;
-  color: #777;
-  padding: 3rem;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-.header {
-  /*vh單位常用於rwd 畫面高度永遠顯示95%    寬度則是用vw*/
-  height: 95vh;
-  background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(126, 213, 111, 0.8)), to(rgba(40, 180, 133, 0.8))), url(../img/hero.jpg);
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
-  background-size: cover;
-  background-position: top;
-  position: relative;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
-          clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
-  /* clip-path: polygon(100% 0, 0 0, 100% 100%); */
-  /* clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%); */
-}
-
-.header__logo-box {
-  position: absolute;
-  top: 4rem;
-  left: 4rem;
-}
-
-.header__logo {
-  height: 3.5rem;
-}
-
-.header__text-box {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  /*只有上面的設定的話是物件的右上角置中，加上transform讓她是物件本身能真的置中*/
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-.heading-primary {
-  color: #fff;
-  /* 在用animation時有時候會莫名地造成畫面小小的shaking 用這個屬性可以解決(原因不明)  這屬性能讓背後的屬性不被看到 */
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-}
-
-.heading-primary--main, .heading-primary--sub {
-  display: block;
-}
-
-.heading-primary--main {
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
-  -webkit-animation-name: moveInLeft;
-          animation-name: moveInLeft;
-  -webkit-animation-duration: 1s;
-          animation-duration: 1s;
-  -webkit-animation-timing-function: ease-in-out;
-          animation-timing-function: ease-in-out;
-  /* animation-iteration-count: infinite; 設定動畫要載幾次 */
-}
-
-.heading-primary--sub {
-  position: relative;
-  left: -0.5rem;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.75rem;
-  -webkit-animation: moveInRight 1s ease-in-out;
-          animation: moveInRight 1s ease-in-out;
-}
-
 /* 使用@keyframes 建立動畫名與內容 再用 animation-name載入動畫 */
 @-webkit-keyframes moveInLeft {
   0% {
@@ -199,7 +97,71 @@ body {
   }
 }
 
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+html {
+  /* 預設為16px 這樣設定後變為10px 方便等等用rem來設定字大小 1rem=預設的根字大小 所以現在1rem = 10px 方便我們計算  */
+  /* 這樣便能用調整rem來改變整個網站的字大小 間距等等 方便我們做rwd網站(red網站最怕寫死單位) */
+  font-size: 62.5%;
+}
+
+body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem;
+}
+
+.heading-primary {
+  color: #fff;
+  /* 在用animation時有時候會莫名地造成畫面小小的shaking 用這個屬性可以解決(原因不明)  這屬性能讓背後的屬性不被看到 */
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.heading-primary--main, .heading-primary--sub {
+  display: block;
+}
+
+.heading-primary--main {
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 3.5rem;
+  -webkit-animation-name: moveInLeft;
+          animation-name: moveInLeft;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  /* animation-iteration-count: infinite; 設定動畫要載幾次 */
+}
+
+.heading-primary--sub {
+  position: relative;
+  left: -0.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1.75rem;
+  -webkit-animation: moveInRight 1s ease-in-out;
+          animation: moveInRight 1s ease-in-out;
+}
+
 .btn {
+  text-decoration: none;
   /* 利用偽元素製造殘影擴大再消失的外觀 */
   /* 當一個物件加上偽元素時，產生出來的偽物件可以看成原本物件的子物件  兩者擁有父子層關係 所以當寬高設100%就表示要一樣大 */
 }
@@ -269,5 +231,88 @@ body {
   /* 這個屬性能決定下動畫的物件一開始要用動畫效果的哪一偵為狀態   backwards會以動畫開始的第一偵為物件的狀態 這邊加這個是因為 按鈕動畫有設延遲 所以一開始他會出現在螢幕上 過0.75秒後才會開始跑動畫 進入到opacity0的狀態  下這個的話能讓物件直接進入動畫開始跑第一偵的狀態 */
   -webkit-animation-fill-mode: backwards;
           animation-fill-mode: backwards;
+}
+
+.header {
+  /*vh單位常用於rwd 畫面高度永遠顯示95%    寬度則是用vw*/
+  height: 95vh;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(126, 213, 111, 0.8)), to(rgba(40, 180, 133, 0.8))), url(../img/hero.jpg);
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+  /* clip-path: polygon(100% 0, 0 0, 100% 100%); */
+  /* clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%); */
+}
+
+.header__logo-box {
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
+}
+
+.header__logo {
+  height: 3.5rem;
+}
+
+.header__text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  /*只有上面的設定的話是物件的右上角置中，加上transform讓她是物件本身能真的置中*/
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.row {
+  max-width: 114rem;
+  background-color: #eee;
+  margin: 0 auto;
+}
+
+.row:not(:last-child) {
+  margin-bottom: 8rem;
+}
+
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.row [class^="col-"] {
+  background-color: orangered;
+  float: left;
+}
+
+.row [class^="col-"]:not(:last-child) {
+  margin-right: 6rem;
+}
+
+.row .col-1-of-2 {
+  width: calc((100% - 6rem) / 2);
+}
+
+.row .col-1-of-3 {
+  width: calc((100% - 6rem * 2) / 3);
+}
+
+.row .col-2-of-3 {
+  width: calc(2 * ((100% - 6rem * 2) / 3) + 6rem);
+}
+
+.row .col-1-of-4 {
+  width: calc((100% - 6rem * 3) / 4);
+}
+
+.row .col-2-of-4 {
+  width: calc(2 * ((100% - 6rem * 3) / 4) + 6rem);
+}
+
+.row .col-3-of-4 {
+  width: calc(3 * ((100% - 6rem * 3) / 4) + 2 * 6rem);
 }
 /*# sourceMappingURL=main.css.map */

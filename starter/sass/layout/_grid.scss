@@ -1,0 +1,48 @@
+.row {
+  max-width: $grid-width;
+  background-color: #eee;
+  margin: 0 auto;
+  
+  //:not()選取器用法  我要選擇除了最後一個row以外的row
+  &:not(:last-child) {
+    margin-bottom: $gutter-vertical;
+  } 
+
+  @include clearfix;
+
+  // []屬性選取器  ^= 選擇"col-開頭的class"   $= 選擇"col-結尾的class"  =* 選擇包含"col-" 的class
+  [class^="col-"] {
+    background-color: orangered;
+    float: left;
+
+    &:not(:last-child){
+      margin-right: $gutter-horizontal;
+    }
+  }
+  .col-1-of-2 {
+    //cala()為css的內建函式 所以要在裡面用scss的變數的話要先用 #{}包住
+    // 切記 這個函式用減號時 減號後要空一格
+    width: calc((100% - #{$gutter-horizontal}) / 2); 
+  }
+
+  .col-1-of-3 {
+    width: calc((100% - #{$gutter-horizontal} * 2) / 3);
+  }
+  
+  .col-2-of-3 {
+    width: calc(2 * ((100% - #{$gutter-horizontal} * 2) / 3) + #{$gutter-horizontal}) ;
+  }
+  
+  .col-1-of-4 {
+    width: calc((100% - #{$gutter-horizontal} * 3) / 4);
+  }
+
+  .col-2-of-4 {
+    width: calc(2 * ((100% - #{$gutter-horizontal} * 3) / 4) + #{$gutter-horizontal});
+  }
+
+  .col-3-of-4 {
+    width: calc(3 * ((100% - #{$gutter-horizontal} * 3) / 4) + 2 * #{$gutter-horizontal});
+  }
+
+}
