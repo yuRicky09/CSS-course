@@ -1,6 +1,5 @@
 .row {
   max-width: $grid-width;
-  background-color: #eee;
   margin: 0 auto;
   
   //:not()選取器用法  我要選擇除了最後一個row以外的row
@@ -12,7 +11,6 @@
 
   // []屬性選取器  ^= 選擇"col-開頭的class"   $= 選擇"col-結尾的class"  =* 選擇包含"col-" 的class
   [class^="col-"] {
-    background-color: orangered;
     float: left;
 
     &:not(:last-child){

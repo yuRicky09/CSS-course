@@ -1,0 +1,6 @@
+.section-about{
+  background-color: $color-grey-light-1;
+  padding: 25rem 0;
+  // 為啥是-20vh 是因為我們整個畫面設佔視窗畫面95vh, 然後綠色背景用clip-path設了右上到右下佔75vh 所以切出來的剩餘空間為20vh。 此時mt設-20就能補齊空缺
+  margin-top: -20vh;
+}
